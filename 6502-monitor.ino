@@ -58,21 +58,20 @@ void setup() {
 void
 onClock(void) {
 
+  int bit = {};
+
   uint16_t address = 0;
-  int bit;
   for(size_t i = 0; i < NUM_ADDRESS_PINS; i++) {
     bit = digitalRead(ADDRESS_PIN[i]);
-    Serial.print(bit);
     address = (address << 1) + bit;
+    Serial.print(bit);
   }
-
-  Serial.print("  ");
 
   uint8_t data = 0;
   for(int i = 0; i < NUM_DATA_BUS_PINS; i++) {
     bit = digitalRead(DATA_BUS_PIN[i]) == HIGH ? 1 : 0;
-    Serial.print(bit);
     data = (data << 1) + bit;
+    Serial.print(bit);
   }
 
   char readWrite = digitalRead(READ_WRITE_PIN) == HIGH ? 'r': 'W';
@@ -80,10 +79,10 @@ onClock(void) {
 
   if(digitalRead(SYNC_PIN) == HIGH) {
     // Decode the instruction opcode if we are fetching
-    snprintf(output, sizeof(output), "  %04x %c %02x %s", address, readWrite, data, opcodeMatrix[data]);
+    snprintf(output, sizeof(output), " %04x %c %02x %s", address, readWrite, data, opcodeMatrix[data]);
   }
   else {
-    snprintf(output, sizeof(output), "  %04x %c %02x", address, readWrite, data);
+    snprintf(output, sizeof(output), " %04x %c %02x", address, readWrite, data);
   }
   Serial.println(output);
 }
