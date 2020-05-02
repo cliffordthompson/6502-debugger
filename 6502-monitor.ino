@@ -10,12 +10,12 @@
 //***************************************************************************//
 
 
-const size_t NUM_ADDRESS_PINS = 16;
-const size_t NUM_DATA_BUS_PINS = 8;
+constexpr size_t NUM_ADDRESS_PINS = 16;
+constexpr size_t NUM_DATA_BUS_PINS = 8;
 
-const uint8_t CLOCK_PIN = 2;
-const uint8_t READ_WRITE_PIN = 3;
-const uint8_t SYNC_PIN = 4;
+constexpr uint8_t CLOCK_PIN = 2;
+constexpr uint8_t READ_WRITE_PIN = 3;
+constexpr uint8_t SYNC_PIN = 4;
 const uint8_t ADDRESS_PIN[NUM_ADDRESS_PINS] = {22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52};
 const uint8_t DATA_BUS_PIN[NUM_DATA_BUS_PINS] = {39, 41, 43, 45, 47, 49, 51, 53};
 
